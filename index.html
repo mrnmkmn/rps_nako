@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>なでしこ</title>
+	</head>
+	<body>
+		<h1>じゃんけんゲーム</h1>
+		<input type="radio" id="rock" name="myselect" value="グー"> <label for="rock">✊グー</label>
+		<input type="radio" id="scissors" name="myselect" value="チョキ"> <label for="scissors">✌️チョキ</label>
+		<input type="radio" id="paper" name="myselect" value="パー"> <label for="paper">✋パー</label>
+		<br><br>
+		<button id="game" type="button">コンピュータと勝負する</button>
+
+		<p style="font-size:2em;" id="message"></p>
+
+		<!-- なでしこのプログラム -->
+		<script type="なでしこ">
+			「#game」のDOM要素取得して、勝負ボタンに代入
+
+			勝負ボタンをクリックした時には
+				選択されたボタン = 「input:checked」のDOM要素取得
+
+				もし、選択されたボタンがNULLならば
+					「あなたの手を選択して下さい」と言う
+				違えば
+					ジャンケン選択肢 = [「グー」, 「チョキ」, 「パー」]
+
+					私 = 「input:checked」の「value」をDOM属性取得
+					相手 = ジャンケン選択肢[(ジャンケン選択肢の要素数)の乱数]
+					勝敗 = 「」
+
+					もし、「{私}」が「グー」ならば
+						もし、「{相手}」が「グー」ならば
+							勝敗 = 「引き分け」
+						違えば、もし、「{相手}」が「チョキ」ならば
+							勝敗 = 「あなたの勝ち」
+						違えば、もし、「{相手}」が「パー」ならば
+							勝敗 = 「あなたの負け」
+						ここまで
+					違えば、もし、「{私}」が「チョキ」ならば
+						もし、「{相手}」が「グー」ならば
+							勝敗 = 「あなたの負け」
+						違えば、もし、「{相手}」が「チョキ」ならば
+							勝敗 = 「引き分け」
+						違えば、もし、「{相手}」が「パー」ならば
+							勝敗 = 「あなたの勝ち」
+						ここまで
+					違えば、もし、「{私}」が「パー」ならば
+						もし、「{相手}」が「グー」ならば
+							勝敗 = 「あなたの勝ち」
+						違えば、もし、「{相手}」が「チョキ」ならば
+							勝敗 = 「あなたの負け」
+						違えば、もし、「{相手}」が「パー」ならば
+							勝敗 = 「引き分け」
+						ここまで
+					ここまで
+
+					結果メッセージ = 「コンピュータの手は【{相手}】でした。<br>結果：{勝敗}」
+
+					結果表示フィールド = 「#message」のDOM要素取得
+					結果表示フィールドに「{結果メッセージ}」をDOMテキスト設定	
+				ここまで
+			ここまで
+		</script>
+		<!-- なでしこの実行エンジンを取り込む -->
+		<script type="text/javascript"
+		 src="https://nadesi.com/v3/cdn.php?v=3.1.8&f=release/wnako3.js&run"
+		></script>
+	</body>
+</html>
